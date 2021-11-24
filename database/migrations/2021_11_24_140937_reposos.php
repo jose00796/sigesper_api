@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReposoTable extends Migration
+class Reposos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,20 @@ class CreateReposoTable extends Migration
      */
     public function up()
     {
-        Schema::create('reposo', function (Blueprint $table) {
+        Schema::create('reposos', function (Blueprint $table) {
             $table->id();
-            $table->char('v_e');
+            $table->char('v_e', 1);
             $table->integer('ced')->unique();
             $table->integer('n_reposo');
             $table->date('f_reposo');
             $table->date('f_desde');
             $table->date('f_hasta');
-            $table->string('diagnostico');
-            $table->string('otros')->nullable();
+            $table->string('diagnostico', 255);
+            $table->string('otros', 255)->nullable();
 
             $table->foreign('ced')
             ->references('ced')
-            ->on('nomina')
+            ->on('nominas')
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
@@ -41,6 +41,6 @@ class CreateReposoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reposo');
+        Schema::dropIfExists('reposos');
     }
 }

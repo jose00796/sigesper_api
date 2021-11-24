@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 
-class NominaModel extends Model implements AuthenticatableContract, AuthorizableContract
+class nominas extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable, HasFactory;
 
@@ -18,8 +18,11 @@ class NominaModel extends Model implements AuthenticatableContract, Authorizable
      *
      * @var array
      */
+    protected $table = 'nominas';
+
     protected $fillable = [
-        'name', 'email',
+        'v_e', 'ced', 'nombres', 'apellidos', 'f_ingreso', 'f_nac', 'ult_periodo_vac', 'periodo_vac',
+        'años_cne', 'años_apn', 'telf', 'email', 'dic_habitacion', 'cargo', 'unidad_adscripcion'
     ];
 
     /**

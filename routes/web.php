@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use App\Http\Controllers\vacacionesController;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -16,3 +18,24 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+//NOMINA
+$router->get('consultar', 'NominaController@consultar');
+$router->get('buscar-nomina/{id}', 'NominaController@ver');
+$router->post('insertar-nomina', 'NominaController@guardar');
+$router->delete('eliminar-nomina/{id}', 'NominaController@eliminar');
+$router->put('actualizar-nomina/{id}', 'NominaController@actualizar');
+
+//REPOSOS
+$router->get('consultar-reposo', 'reposoController@consultar');
+$router->get('buscar-reposo/{id}', 'reposoController@ver');
+$router->post('insertar-reposo', 'reposoController@guardar');
+$router->delete('eliminar-reposo/{id}', 'reposoController@eliminar');
+$router->put('actualizar-reposo/{id}', 'reposoController@actualizar');
+
+//VACACIONES
+$router->get('consultar-vac', 'vacacionesController@consultar');
+$router->get('buscar-vac/{id}', 'vacacionesController@ver');
+$router->post('insertar-vac', 'vacacionesController@guardar');
+$router->delete('eliminar-vac/{id}', 'vacacionesController@eliminar');
+$router->put('actualizar-vac/{id}', 'vacacionesController@actualizar');

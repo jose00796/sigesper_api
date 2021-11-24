@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 
-class ReposoModel extends Model implements AuthenticatableContract, AuthorizableContract
+class reposos extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable, HasFactory;
 
@@ -18,8 +18,10 @@ class ReposoModel extends Model implements AuthenticatableContract, Authorizable
      *
      * @var array
      */
+    protected $table = 'reposos';
+
     protected $fillable = [
-        'name', 'email',
+        'v_e', 'ced', 'n_reposo', 'f_reposo', 'f_desde', 'f_hasta', 'diagnostico', 'otros'
     ];
 
     /**
