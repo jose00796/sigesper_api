@@ -2,7 +2,6 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
-use App\Http\Controllers\vacacionesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +19,7 @@ $router->get('/', function () use ($router) {
 });
 
 //NOMINA
-$router->get('consultar', 'NominaController@consultar');
+$router->get('consultar-nomina', 'NominaController@consultar');
 $router->get('buscar-nomina/{id}', 'NominaController@ver');
 $router->post('insertar-nomina', 'NominaController@guardar');
 $router->delete('eliminar-nomina/{id}', 'NominaController@eliminar');

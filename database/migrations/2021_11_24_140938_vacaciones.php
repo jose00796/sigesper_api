@@ -16,7 +16,7 @@ class Vacaciones extends Migration
         Schema::create('vacaciones', function (Blueprint $table) {
             $table->id();
             $table->char('v_e', 1);
-            $table->integer('ced')->unique();
+            $table->integer('ced');
             $table->date('f_inicio');
             $table->date('f_fin');
             $table->string('periodo_vac', 255);

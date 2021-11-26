@@ -16,7 +16,7 @@ class Reposos extends Migration
         Schema::create('reposos', function (Blueprint $table) {
             $table->id();
             $table->char('v_e', 1);
-            $table->integer('ced')->unique();
+            $table->integer('ced');
             $table->integer('n_reposo');
             $table->date('f_reposo');
             $table->date('f_desde');

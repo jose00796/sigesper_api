@@ -70,6 +70,19 @@ return [
             'sslmode' => env('DB_SSL_MODE', 'prefer'),
         ],
 
+          'pgsql_2' => [
+            'driver' => 'pgsql',
+            'host' => env('DB_HOST', '10.100.207.151'),
+            'port' => env('DB_PORT', 5432),
+            'database' => env('DB_DATABASE', 'rep'),
+            'username' => env('DB_USERNAME', 'onre'),
+            'password' => env('DB_PASSWORD', 'onre'),
+            'charset' => env('DB_CHARSET', 'utf8'),
+            'prefix' => env('DB_PREFIX', ''),
+            'schema' => env('DB_SCHEMA', 'suite'),
+            'sslmode' => env('DB_SSL_MODE', 'prefer'),
+        ],
+
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'host' => env('DB_HOST', 'localhost'),
