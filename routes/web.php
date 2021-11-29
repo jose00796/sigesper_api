@@ -38,3 +38,5 @@ $router->get('buscar-vac/{id}', 'vacacionesController@ver');
 $router->post('insertar-vac', 'vacacionesController@guardar');
 $router->delete('eliminar-vac/{id}', 'vacacionesController@eliminar');
 $router->put('actualizar-vac/{id}', 'vacacionesController@actualizar');
+
+$router->get('consultar-user', 'usuariosController@consultar');
