@@ -22,7 +22,8 @@ class usuarios extends Model implements AuthenticatableContract, AuthorizableCon
     protected $table = 'usuarios';
 
     protected $fillable = [
-        'usuario', 'pass'
+        'ced', 'nombres', 'apellidos', 'cargo', 'id_rep', 'id_subdep', 'email', 'login', 'pwd', 'v_e', 'pwd_md5',
+        'codigo_ch', 'id_sit_lab', 'tipo_clave', 'id_perfil', 'f_ingreso', 'sexo', 'ult_login', 'api_token', 'remember_token'
     ];
 
     /**
@@ -31,6 +32,6 @@ class usuarios extends Model implements AuthenticatableContract, AuthorizableCon
      * @var array
      */
     protected $hidden = [
-        'password',
+        'pwd',
     ];
 }

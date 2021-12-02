@@ -14,9 +14,19 @@
 |
 */
 
-$router->get('/', function () use ($router) {
+$router->get('/', ['middleware' => ['auth']], function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/key', function(){
+    return \Illuminate\Support\Str::random(32);
+});
+
+//USUARIOS
+$router->post('login', 'loginController@login');
+$router->post('registrar', 'registerController@register');
+$router->get('consultar-user', 'usuariosController@consultar');
+$router->get('buscar-user/{id}', 'usuariosController@ver');
 
 //NOMINA
 $router->get('consultar-nomina', 'NominaController@consultar');
@@ -39,4 +49,9 @@ $router->post('insertar-vac', 'vacacionesController@guardar');
 $router->delete('eliminar-vac/{id}', 'vacacionesController@eliminar');
 $router->put('actualizar-vac/{id}', 'vacacionesController@actualizar');
 
-$router->get('consultar-user', 'usuariosController@consultar');
+$router->group(['middleware' => 'auth'], function() use ($router){
+
+    // Aqui van todas las rutas que necesitan estar autenticadas para el acceso
+    $router->post('logout', 'loginController@logout');
+
+});
