@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\usuarios;
-use Symfony\Component\HttpFoundation\Test\Constraint\ResponseFormatSame;
 
 class usuariosController extends Controller
 {
@@ -32,6 +31,15 @@ class usuariosController extends Controller
         $datosEncontrados = $data->find($id);
 
         return response()->json($datosEncontrados);
+    }
+
+    public function eliminar($id)
+    {
+        $data = usuarios::find($id);
+
+        $data->delete();
+
+        return response()->json('Usuario Eliminado');   
     }
 
     //

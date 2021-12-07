@@ -8,7 +8,8 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 
-header('Access-Control-Allow-Origin: *');
+//header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +76,8 @@ $app->configure('app');
 */
 
  $app->middleware([
-     App\Http\Middleware\ExampleMiddleware::class
+     App\Http\Middleware\ExampleMiddleware::class,
+     App\Http\Middleware\CorsMiddleware::class
  ]);
 
  $app->routeMiddleware([

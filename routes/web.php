@@ -22,11 +22,14 @@ $router->get('/key', function(){
     return \Illuminate\Support\Str::random(32);
 });
 
-//USUARIOS
+//LOGIN
 $router->post('login', 'loginController@login');
-$router->post('registrar', 'registerController@register');
+
+//USUARIOS
 $router->get('consultar-user', 'usuariosController@consultar');
 $router->get('buscar-user/{id}', 'usuariosController@ver');
+$router->post('registrar', 'registerController@register');
+$router->delete('eliminar-user/{id}', 'usuariosController@eliminar');
 
 //NOMINA
 $router->get('consultar-nomina', 'NominaController@consultar');
